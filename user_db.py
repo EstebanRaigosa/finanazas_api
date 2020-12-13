@@ -23,11 +23,26 @@ database_users = {  1 :User(**{"id":1,
                             }
 
 
-def get_user(llave: int):
+def get_userById(llave: int):
     if llave in database_users.keys():
         return database_users[llave]
     else:
         return None
+
+def get_userByName(llave: str):
+    i = 1
+    while i <= len(database_users):
+            if database_users[i].name == llave:
+                    return database_users[i]
+            i+=1
+def count_Repeteat(llave: str):
+    cont = 0
+    i = 1
+    while i <= len(database_users):
+            if database_users[i].name == llave:
+                    cont+=1
+            i+=1
+    return cont
 
 def update_user(user: User):
     database_users[user.id] = user
